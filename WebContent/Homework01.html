@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과제01</title>
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jquery.mobile-1.4.5.min.js"></script>
+
+<link href="jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+
+<style>
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+} 
+
+p {
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.subcon_group01 {
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	position: relative;
+}
+
+.subcon01 {
+	border: 2px solid red;
+	width: 32%;
+	height: 50%;
+	margin-left: 1%;
+	position: relative;
+	vertical-align: middle;
+	text-align: center;
+	float: left;
+}
+
+subcon_group02 {
+	width: 90%;
+	margin-left: 5%;
+	position: relative;
+	text-align: center;
+}
+
+.subcon02 {
+	border: 2px solid red;
+	width: 47%;
+	height: 50%;
+	margin-left: 2%;
+	margin-top: 2%;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	float: left
+}
+
+#contents01 {
+	display: block;
+}
+
+#contents02 {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#image01 {
+	width: 100%;
+}
+
+.button {
+	width: 50%;
+	margin-left: 25%;
+}
+</style>
+<script type="text/javascript">
+	function doShow01(text) {
+		// jquery 기본 함수
+		$("#contents01").hide();
+		$("#contents02").show();
+		$("#detail").html(text);
+		$("#subtitle").html("서브화면");
+	}
+
+	function doShow02() {
+		// jquery 기본 함수
+		$("#contents01").show();
+		$("#contents02").hide();
+		$("#subtitle").html("메뉴화면");
+	}
+</script>
+</head>
+<body>
+	<div data-role="page" id="main">
+		<!-- 하나의 화면 -->
+		<div data-role="header">
+			<h1 id="subtitle" onclick="changTitle();">메뉴화면</h1>
+		</div>
+		<br>
+
+		<div id="contents01">
+			<div class="subcon_group01">
+				<div class="subcon01" onclick="doShow01('메뉴1')">
+					<img src="house.png" id="image01" />
+					<p>메뉴1</p>
+				</div>
+				<div class="subcon01" onclick="doShow01('메뉴2')">
+					<img src="house.png" id="image01" />
+					<p>메뉴2</p>
+				</div>
+				<div class="subcon01" onclick="doShow01('메뉴3')">
+					<img src="house.png" id="image01" />
+					<p>메뉴3</p>
+				</div>
+			</div>
+			<br>
+			<div class="subcon_group02" id="test">
+				<div class="subcon02" onclick="doShow01('과제합니다.과제합니다.과제합니다.과제합니다.')">
+					<img src="house.png" id="image01" />
+					<p>과제합니다.과제합니다.과제합니다.과제합니다.</p>
+				</div>
+				<div class="subcon02" onclick="doShow01('열심히합니다.열심히합니다.열심히합니다.')">
+					<img src="house.png" id="image01" />
+					<p>열심히합니다.열심히합니다.열심히합니다.</p>
+				</div>
+			</div>
+
+		</div>
+		<div id="contents02">
+			<br>
+			<p id="detail"></p>
+
+			<br>
+			<div class="button">
+				<input type="button" value="돌아가기" onclick="doShow02();" />
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
